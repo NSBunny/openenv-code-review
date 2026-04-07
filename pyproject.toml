@@ -17,7 +17,7 @@ inference = [
 ]
 
 [project.scripts]
-code-review-server = "code_review_env.server.app:main"
+server = "code_review_env.server.app:main"
 
 [build-system]
 requires = ["setuptools>=61.0"]
