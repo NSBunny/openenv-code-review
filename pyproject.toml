@@ -1,0 +1,21 @@
+[project]
+name = "code-review-env"
+version = "1.0.0"
+description = "AI Code Review RL Environment for OpenEnv"
+requires-python = ">=3.10"
+dependencies = [
+    "openenv-core",
+    "fastapi",
+    "uvicorn[standard]",
+    "pydantic>=2.0",
+]
+
+[project.optional-dependencies]
+inference = [
+    "openai",
+    "requests",
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"

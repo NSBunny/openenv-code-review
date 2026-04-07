@@ -1,0 +1,33 @@
+name: code_review_env
+description: "AI Code Review Environment \u2014 review Python code for bugs, style issues, and security vulnerabilities"
+version: "1.0.0"
+
+environment:
+  class: code_review_env.server.environment.CodeReviewEnvironment
+  action: code_review_env.models.CodeReviewAction
+  observation: code_review_env.models.CodeReviewObservation
+  state: code_review_env.models.CodeReviewState
+
+server:
+  host: "0.0.0.0"
+  port: 8000
+
+tasks:
+  - id: easy_001
+    difficulty: easy
+    description: "Find issues in an average calculation function"
+  - id: easy_002
+    difficulty: easy
+    description: "Find issues in a file reading function"
+  - id: medium_001
+    difficulty: medium
+    description: "Find issues in a binary search implementation"
+  - id: medium_002
+    difficulty: medium
+    description: "Find issues in a memoization decorator"
+  - id: hard_001
+    difficulty: hard
+    description: "Find security issues in an auth system"
+  - id: hard_002
+    difficulty: hard
+    description: "Find issues in a rate limiter"
