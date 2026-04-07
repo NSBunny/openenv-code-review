@@ -23,14 +23,15 @@ warnings.filterwarnings("ignore")
 # ----- Environment variables (MANDATORY) -----
 API_BASE_URL = os.environ.get("API_BASE_URL", "https://api.groq.com/openai/v1")
 MODEL_NAME = os.environ.get("MODEL_NAME", "llama-3.3-70b-versatile")
+HF_TOKEN = os.environ.get("HF_TOKEN")
 
 # ----- Environment URL -----
 ENV_URL = os.environ.get("ENV_URL", "http://localhost:8000")
 
 # Initialize OpenAI client — API key MUST be set via environment variable
-API_KEY = os.environ.get("OPENAI_API_KEY", "")
+API_KEY = os.environ.get("OPENAI_API_KEY", "") or HF_TOKEN
 if not API_KEY:
-    print("WARNING: OPENAI_API_KEY not set. LLM calls will fail.", file=sys.stderr)
+    print("WARNING: OPENAI_API_KEY or HF_TOKEN not set. LLM calls will fail.", file=sys.stderr)
 
 client = OpenAI(
     base_url=API_BASE_URL,
